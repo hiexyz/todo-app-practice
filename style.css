@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    background: #f5f5f5;
+    padding: 30px;
+  }
+  h1 {
+    color: #333;
+  }
+  #todo-input {
+    padding: 8px;
+    width: 200px;
+  }
+  #add-btn {
+    padding: 8px 12px;
+    margin-left: 4px;
+  }
+  #todo-list {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  #todo-list li {
+    padding: 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
