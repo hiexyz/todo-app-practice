@@ -11,6 +11,44 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   
+  // Google認証プロバイダー
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// ログイン
+document.getElementById('login-btn').addEventListener('click', function() {
+  firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      document.getElementById('user-info').textContent = result.user.displayName + "でログイン中";
+      document.getElementById('login-btn').style.display = "none";
+      document.getElementById('logout-btn').style.display = "";
+    })
+    .catch((error) => {
+      alert("ログイン失敗: " + error.message);
+    });
+});
+
+// ログアウト
+document.getElementById('logout-btn').addEventListener('click', function() {
+  firebase.auth().signOut().then(() => {
+    document.getElementById('user-info').textContent = "";
+    document.getElementById('login-btn').style.display = "";
+    document.getElementById('logout-btn').style.display = "none";
+  });
+});
+
+// ログイン状態監視
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    document.getElementById('user-info').textContent = user.displayName + "でログイン中";
+    document.getElementById('login-btn').style.display = "none";
+    document.getElementById('logout-btn').style.display = "";
+  } else {
+    document.getElementById('user-info').textContent = "";
+    document.getElementById('login-btn').style.display = "";
+    document.getElementById('logout-btn').style.display = "none";
+  }
+});
+
   document.getElementById('add-btn').addEventListener('click', function() {
     const input = document.getElementById('todo-input');
     const text = input.value.trim();
