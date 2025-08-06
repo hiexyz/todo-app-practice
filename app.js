@@ -1,5 +1,5 @@
 // Firebase初期化
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCuJA0nFEKn7xW0JFkDvk6GPxuDUNnykhY",
     authDomain: "todo-app-8e69e.firebaseapp.com",
     projectId: "todo-app-8e69e",
