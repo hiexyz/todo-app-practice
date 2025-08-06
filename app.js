@@ -33,3 +33,5 @@ document.getElementById('add-btn').addEventListener('click', function() {
     snapshot.forEach((doc) => todos.push(doc.data().text));
     // ここで画面に反映
   });
+
+  console.log("データを保存しました", result);
