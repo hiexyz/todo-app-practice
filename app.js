@@ -1,5 +1,5 @@
 // Firebaseの初期化（必ず最初に記載）
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyCuJA0nFEKn7xW0JFkDvk6GPxuDUNnykhY",
     authDomain: "todo-app-8e69e.firebaseapp.com",
     projectId: "todo-app-8e69e",
@@ -8,6 +8,7 @@ const firebaseConfig = {
     appId: "1:633974812240:web:3d0b09b0ebdeaaba1fab55",
     measurementId: "G-0SLJNW20ZX"
   };
+
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   
@@ -21,7 +22,6 @@ const firebaseConfig = {
     }
   });
   
-  // ToDo追加（Firestoreへ保存）
   function addTodo(text) {
     db.collection("todos").add({ text: text, timestamp: Date.now() })
       .then(() => {
@@ -32,7 +32,6 @@ const firebaseConfig = {
       });
   }
   
-  // Firestoreから取得して表示
   db.collection("todos").orderBy("timestamp")
   .onSnapshot((snapshot) => {
     const todoList = document.getElementById('todo-list');
