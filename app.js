@@ -1,4 +1,4 @@
-// Firebaseの初期化（必ず最初に記載）
+// Firebase初期化
   const firebaseConfig = {
     apiKey: "AIzaSyCuJA0nFEKn7xW0JFkDvk6GPxuDUNnykhY",
     authDomain: "todo-app-8e69e.firebaseapp.com",
@@ -8,7 +8,6 @@
     appId: "1:633974812240:web:3d0b09b0ebdeaaba1fab55",
     measurementId: "G-0SLJNW20ZX"
   };
-
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   
