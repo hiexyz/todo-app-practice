@@ -22,3 +22,14 @@ document.getElementById('add-btn').addEventListener('click', function() {
     li.appendChild(delBtn);
     document.getElementById('todo-list').appendChild(li);
   }
+
+  function addTodo(text) {
+    db.collection("todos").add({ text: text, timestamp: Date.now() });
+  }
+
+  db.collection("todos").orderBy("timestamp")
+  .onSnapshot((snapshot) => {
+    const todos = [];
+    snapshot.forEach((doc) => todos.push(doc.data().text));
+    // ここで画面に反映
+  });
